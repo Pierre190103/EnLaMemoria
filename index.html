@@ -1,371 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>En Memoria de John Doe</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --primary-color: #142859;
-        /* Color principal 1 */
-        --secondary-color: #697ba3;
-        /* Color principal 2 */
-        --accent-color: #7d8aa5;
-        /* Color principal 3 */
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>En Memoria de John Doe</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --primary-color: #142859;
+      --secondary-color: #697ba3;
+      --accent-color: #7d8aa5;
+    }
 
-      body {
-        background-color: var(--primary-color);
-        color: #fff;
-      }
+    body {
+      background-color: var(--primary-color);
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
 
-      .navbar {
-        background-color: var(--secondary-color);
-      }
+    .navbar {
+      background-color: var(--secondary-color);
+    }
 
-      .btn-custom {
-        background-color: var(--accent-color);
-        color: #fff;
-      }
+    .btn-custom {
+      background-color: var(--accent-color);
+      color: #fff;
+    }
 
-      .btn-custom:hover {
-        background-color: #fff;
-        color: var(--accent-color);
-      }
+    .btn-custom:hover {
+      background-color: #fff;
+      color: var(--accent-color);
+    }
 
-      .card {
-        background-color: var(--secondary-color);
-      }
+    .card {
+      background-color: var(--secondary-color);
+    }
 
-      footer {
-        background-color: var(--secondary-color);
-        color: #fff;
-        padding: 1rem 0;
-        text-align: center;
-      }
+    footer {
+      background-color: var(--secondary-color);
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+    }
 
-      img {
-        border-radius: 8px;
-      }
+    img {
+      border-radius: 8px;
+    }
 
-      .tree {
-        text-align: center;
-        position: relative;
-      }
+    .tree {
+      text-align: center;
+      position: relative;
+    }
 
-      .tree-node {
-        text-align: center;
-        margin: 1rem;
-      }
+    .tree-node {
+      text-align: center;
+      margin: 1rem;
+    }
 
-      .tree-node img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        border: 3px solid #6c757d;
-        object-fit: cover;
-      }
+    .tree-node img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #6c757d;
+      object-fit: cover;
+    }
 
-      .tree-node span {
+    .tree-node span {
+      display: block;
+      margin-top: 0.5rem;
+      color: #495057;
+      font-weight: bold;
+    }
+
+    .connector {
+      width: 2px;
+      background-color: #6c757d;
+      margin: 0 auto;
+    }
+
+    .connector-vertical {
+      height: 30px;
+    }
+
+    .connector-horizontal {
+      height: 2px;
+      width: 100%;
+    }
+
+    .polaroid {
+      width: 100%; /* Ajuste al 100% para móviles */
+      max-width: 220px; /* Tamaño máximo en dispositivos grandes */
+      height: auto; /* Mantener relación de aspecto */
+      border: 10px solid #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: auto;
+    }
+
+    .polaroid img {
+      width: 100%; /* Ajustar imagen al 100% del contenedor */
+      height: auto; /* Mantener relación de aspecto */
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .navbar-toggler {
         display: block;
-        margin-top: 0.5rem;
-        color: #495057;
-        font-weight: bold;
       }
 
-      .connector {
-        width: 2px;
-        background-color: #6c757d;
-        margin: 0 auto;
+      .navbar-collapse {
+        display: none;
+        flex-basis: 100%;
       }
 
-      .connector-vertical {
-        height: 30px;
+      .navbar-toggler.collapsed ~ .navbar-collapse {
+        display: flex;
       }
+    }
+  </style>
+</head>
 
-      .connector-horizontal {
-        height: 2px;
-        width: 100%;
-      }
-      .polaroid {
-        width: 220px; /* Ancho del polaroid */
-        height: 260px; /* Alto del polaroid */
-        border: 10px solid #fff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-color: #fff;
-        border-radius: 8px;
-        overflow: hidden;
-        margin: auto;
-      }
-
-      .polaroid img {
-        width: 200px; /* Tamaño de la imagen dentro del polaroid */
-        height: 200px; /* Tamaño de la imagen dentro del polaroid */
-        object-fit: cover;
-        display: block;
-      }
-    </style>
-  </head>
-
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container">
-        <a class="navbar-brand" href="#">Pagina de Memorias</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#historia">Historia</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#galeria">Galería</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#mensajes">Mensajes</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#videos">Videos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#arbol">Árbol Genealógico</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#ubicacion">Ubicación</a>
-            </li>
-          </ul>
-        </div>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Pagina de Memorias</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#historia">Historia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#galeria">Galería</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#mensajes">Mensajes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#videos">Videos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#arbol">Árbol Genealógico</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#ubicacion">Ubicación</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <header class="text-center py-5">
-      <div class="container">
-        <img
-          src="imagenes\fotografia.jpg"
-          style="height: 300px; width: 300px"
-          alt="Foto de John Doe"
-          class="rounded-circle mb-3"
-        />
-        <h1 class="display-4">En Memoria de John Doe</h1>
-        <p class="lead">1950 - 2023</p>
-      </div>
-    </header>
+  <!-- Hero Section -->
+  <header class="text-center py-5">
+    <div class="container">
+      <img
+        src="imagenes/fotografia.jpg"
+        style="height: 300px; width: 300px"
+        alt="Foto de John Doe"
+        class="rounded-circle mb-3"
+      />
+      <h1 class="display-4">En Memoria de John Doe</h1>
+      <p class="lead">1950 - 2023</p>
+    </div>
+  </header>
 
-    <!-- Historia -->
-    <section id="historia" class="py-5">
-      <div class="container">
-        <h2 class="text-center mb-4">Su Historia</h2>
-        <p>
-          John Doe fue una persona que marcó la vida de todos a su alrededor.
-          Desde sus primeros años, demostró un amor profundo por su familia y
-          comunidad. A lo largo de su vida, destacó por su compromiso con causas
-          sociales, su dedicación a su carrera y su pasión por la música y la
-          naturaleza.
-        </p>
-      </div>
-    </section>
+  <!-- Historia -->
+  <section id="historia" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Su Historia</h2>
+      <p>
+        John Doe fue una persona que marcó la vida de todos a su alrededor.
+        Desde sus primeros años, demostró un amor profundo por su familia y
+        comunidad. A lo largo de su vida, destacó por su compromiso con causas
+        sociales, su dedicación a su carrera y su pasión por la música y la
+        naturaleza.
+      </p>
+    </div>
+  </section>
 
-    <!-- Galería -->
-    <section id="galeria" class="py-5 bg-light">
-      <div class="container">
-        <h2 class="text-center mb-4 text-dark">
-          Galería de Momentos Memorables
-        </h2>
-        <div class="row g-3">
-          <div class="col-6 col-md-3">
-            <div class="polaroid">
-              <img
-                src="imagenes\fotografia.jpg"
-                style="height: 200px; width: 200px"
-                class="img-fluid"
-                alt="Foto 1"
-                data-bs-toggle="modal"
-                data-bs-target="#foto1Modal"
-              />
-            </div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="polaroid">
-              <img
-                src="imagenes\fotografia.jpg"
-                style="height: 200px; width: 200px"
-                class="img-fluid"
-                alt="Foto 2"
-                data-bs-toggle="modal"
-                data-bs-target="#foto2Modal"
-              />
-            </div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="polaroid">
-              <img
-                src="imagenes\fotografia.jpg"
-                style="height: 200px; width: 200px"
-                class="img-fluid"
-                alt="Foto 3"
-                data-bs-toggle="modal"
-                data-bs-target="#foto3Modal"
-              />
-            </div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="polaroid">
-              <img
-                src="imagenes\fotografia.jpg"
-                style="height: 200px; width: 200px"
-                class="img-fluid"
-                alt="Foto 4"
-                data-bs-toggle="modal"
-                data-bs-target="#foto4Modal"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Mensajes -->
-    <section id="mensajes" class="py-5">
-      <div class="container">
-        <h2 class="text-center mb-4">Mensajes de Familiares y Amigos</h2>
-        <div class="card p-4">
-          <p>
-            "Siempre recordaré su sonrisa y las historias que compartió con
-            nosotros. Su legado vivirá para siempre en nuestros corazones."
-          </p>
-          <p class="text-end">- Jane Doe</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Videos -->
-    <section id="videos" class="py-5 bg-light">
-        <div class="container">
-          <h2 class="text-center mb-4 text-dark">Videos</h2>
-          <video controls class="w-100">
-            <source src="imagenes/memorias.mp4" type="video/mp4">
-            Tu navegador no soporta el elemento de video.
-          </video>
-        </div>
-      </section>
-      
-<!-- arbol genealogico -->
-    <section id="arbol" class="py-5">
-      <div class="container">
-        <h2 class="text-center mb-4">Árbol Genealógico</h2>
-        <div class="tree d-flex justify-content-center flex-wrap">
-          <!-- Padre y Esposa -->
-          <div class="tree-node">
+  <!-- Galería -->
+  <section id="galeria" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4 text-dark">Galería de Momentos Memorables</h2>
+      <div class="row g-3">
+        <div class="col-6 col-md-3">
+          <div class="polaroid">
             <img
-              src="imagenes\fotografia.jpg"
-              style="height: 150px; width: 150px"
-              alt="Padre"
-            />
-            <span>Padre</span>
-            <div class="connector connector-vertical"></div>
-            <img src="imagenes\fotografia.jpg"
-            style="height: 150px; width: 150px" alt="Madre" />
-            <span>Madre</span>
-          </div>
-
-          <!-- Hijos -->
-          <div class="w-100 d-flex justify-content-center">
-            <div class="tree-node">
-              <img src="imagenes\fotografia.jpg"
-              style="height: 150px; width: 150px" alt="Hijo 1" />
-              <span>Hijo 1</span>
-              <div class="connector connector-horizontal"></div>
-              <div class="tree-node">
-                <img src="imagenes\fotografia.jpg"
-                style="height: 150px; width: 150px" alt="Nieta 1" />
-                <span>Nieta 1</span>
-              </div>
-              <div class="tree-node">
-                <img src="imagenes\fotografia.jpg"
-                style="height: 150px; width: 150px" alt="Nieta 2" />
-                <span>Nieta 2</span>
-              </div>
-            </div>
-
-            <div class="tree-node">
-              <img src="imagenes\fotografia.jpg"
-              style="height: 150px; width: 150px" alt="Hijo 2" />
-              <span>Hijo 2</span>
-              <div class="connector connector-horizontal"></div>
-              <div class="tree-node">
-                <img src="imagenes\fotografia.jpg"
-                style="height: 150px; width: 150px" alt="Nieto 1" />
-                <span>Nieto 1</span>
-              </div>
-            </div>
-
-            <div class="tree-node">
-              <img src="imagenes\fotografia.jpg"
-              style="height: 150px; width: 150px" alt="Hijo 3" />
-              <span>Hijo 3</span>
-              <div class="connector connector-horizontal"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Ubicación -->
-    <section id="ubicacion" class="py-5 bg-light">
-      <div class="container">
-        <h2 class="text-center mb-4 text-dark">Lugar de Descanso</h2>
-        <div class="d-flex justify-content-center">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62475.58795145503!2d-77.14489793337891!3d-11.854565535803095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105d130317373cf%3A0x2b0f440fa14b9732!2sParque%20del%20Recuerdo%20Puente%20Piedra!5e0!3m2!1ses-419!2spe!4v1736566496661!5m2!1ses-419!2spe"
-            width="600"
-            height="450"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          >
-          </iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 En Memoria de John Doe. Todos los derechos reservados a ProgresoTec.</p>
-    </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Modal para fotos -->
-    <div class="modal fade" id="foto1Modal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-body">
-            <img
-            src="imagenes\fotografia.jpg"
-            style="height: 200px; width: 200px"
-              class="img-fluid mb-3"
+              src="imagenes/fotografia.jpg"
+              style="height: 200px; width: 200px"
+              class="img-fluid"
               alt="Foto 1"
+              data-bs-toggle="modal"
+              data-bs-target="#foto1Modal"
             />
-            <p class="text-dark">
-              Descripción del momento memorable relacionado con esta imagen.
-            </p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="polaroid">
+            <img
+              src="imagenes/fotografia.jpg"
+              style="height: 200px; width: 200px"
+              class="img-fluid"
+              alt="Foto 2"
+              data-bs-toggle="modal"
+              data-bs-target="#foto2Modal"
+            />
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="polaroid">
+            <img
+              src="imagenes/fotografia.jpg"
+              style="height: 200px; width: 200px"
+              class="img-fluid"
+              alt="Foto 3"
+              data-bs-toggle="modal"
+              data-bs-target="#foto3Modal"
+            />
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="polaroid">
+            <img
+              src="imagenes/fotografia.jpg"
+              style="height: 200px; width: 200px"
+              class="img-fluid"
+              alt="Foto 4"
+              data-bs-toggle="modal"
+              data-bs-target="#foto4Modal"
+            />
           </div>
         </div>
       </div>
     </div>
-  </body>
+  </section>
+
+  <!-- Mensajes -->
+  <section id="mensajes" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Mensajes de Familiares y Amigos</h2>
+      <div class="card p-4">
+        <p>
+          "Siempre recordaré su sonrisa y las historias que compartió con
+          nosotros. Su legado vivirá para siempre en nuestros corazones."
+        </p>
+        <p class="text-end">- Jane Doe</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Videos -->
+  <section id="videos" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4 text-dark">Videos</h2>
+      <video controls class="w-100">
+        <source src="imagenes/memorias.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+      </video>
+    </div>
+  </section>
+
+  <!-- Árbol Genealógico -->
+  <section id="arbol" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Árbol Genealógico</h2>
+      <div class="text-center">
+        <img src="imagenes/arbol.jpg" alt="Árbol Genealógico" class="img-fluid">
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Ubicación -->
+  <section id="ubicacion" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4 text-dark">Ubicación</h2>
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2749.497064552478!2d-71.61275588478586!3d-13.123456789123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x910ce6f345abc123%3A0x1234567890abcdef!2sCasa%20John%20Doe!5e0!3m2!1ses!2spe!4v1617172427189!5m2!1ses!2spe"
+          style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 En Memoria de John Doe. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ></script>
+</body>
 </html>
