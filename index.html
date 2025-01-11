@@ -12,9 +12,9 @@
       :root {
         --primary-color: #142859;
         /* Color principal 1 */
-        --secondary-color: #697BA3;
+        --secondary-color: #697ba3;
         /* Color principal 2 */
-        --accent-color: #7D8AA5;
+        --accent-color: #7d8aa5;
         /* Color principal 3 */
       }
 
@@ -153,7 +153,8 @@
     <header class="text-center py-5">
       <div class="container">
         <img
-          src="https://picsum.photos/300/300"
+          src="imagenes\fotografia.jpg"
+          style="height: 300px; width: 300px"
           alt="Foto de John Doe"
           class="rounded-circle mb-3"
         />
@@ -179,12 +180,15 @@
     <!-- Galería -->
     <section id="galeria" class="py-5 bg-light">
       <div class="container">
-        <h2 class="text-center mb-4 text-dark">Galería de Momentos Memorables</h2>
+        <h2 class="text-center mb-4 text-dark">
+          Galería de Momentos Memorables
+        </h2>
         <div class="row g-3">
           <div class="col-6 col-md-3">
             <div class="polaroid">
               <img
-                src="https://picsum.photos/200/200"
+                src="imagenes\fotografia.jpg"
+                style="height: 200px; width: 200px"
                 class="img-fluid"
                 alt="Foto 1"
                 data-bs-toggle="modal"
@@ -195,7 +199,8 @@
           <div class="col-6 col-md-3">
             <div class="polaroid">
               <img
-                src="https://picsum.photos/200/200"
+                src="imagenes\fotografia.jpg"
+                style="height: 200px; width: 200px"
                 class="img-fluid"
                 alt="Foto 2"
                 data-bs-toggle="modal"
@@ -206,7 +211,8 @@
           <div class="col-6 col-md-3">
             <div class="polaroid">
               <img
-                src="https://picsum.photos/200/200"
+                src="imagenes\fotografia.jpg"
+                style="height: 200px; width: 200px"
                 class="img-fluid"
                 alt="Foto 3"
                 data-bs-toggle="modal"
@@ -217,7 +223,8 @@
           <div class="col-6 col-md-3">
             <div class="polaroid">
               <img
-                src="https://picsum.photos/200/200"
+                src="imagenes\fotografia.jpg"
+                style="height: 200px; width: 200px"
                 class="img-fluid"
                 alt="Foto 4"
                 data-bs-toggle="modal"
@@ -245,86 +252,94 @@
 
     <!-- Videos -->
     <section id="videos" class="py-5 bg-light">
+        <div class="container">
+          <h2 class="text-center mb-4 text-dark">Videos</h2>
+          <video controls class="w-100">
+            <source src="imagenes/memorias.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+          </video>
+        </div>
+      </section>
+      
+<!-- arbol genealogico -->
+    <section id="arbol" class="py-5">
       <div class="container">
-        <h2 class="text-center mb-4 text-dark">Videos</h2>
-        <div class="ratio ratio-16x9">
-          <iframe
-            src="https://www.youtube.com/embed/VIDEO_ID"
-            allowfullscreen
-          ></iframe>
+        <h2 class="text-center mb-4">Árbol Genealógico</h2>
+        <div class="tree d-flex justify-content-center flex-wrap">
+          <!-- Padre y Esposa -->
+          <div class="tree-node">
+            <img
+              src="imagenes\fotografia.jpg"
+              style="height: 150px; width: 150px"
+              alt="Padre"
+            />
+            <span>Padre</span>
+            <div class="connector connector-vertical"></div>
+            <img src="imagenes\fotografia.jpg"
+            style="height: 150px; width: 150px" alt="Madre" />
+            <span>Madre</span>
+          </div>
+
+          <!-- Hijos -->
+          <div class="w-100 d-flex justify-content-center">
+            <div class="tree-node">
+              <img src="imagenes\fotografia.jpg"
+              style="height: 150px; width: 150px" alt="Hijo 1" />
+              <span>Hijo 1</span>
+              <div class="connector connector-horizontal"></div>
+              <div class="tree-node">
+                <img src="imagenes\fotografia.jpg"
+                style="height: 150px; width: 150px" alt="Nieta 1" />
+                <span>Nieta 1</span>
+              </div>
+              <div class="tree-node">
+                <img src="imagenes\fotografia.jpg"
+                style="height: 150px; width: 150px" alt="Nieta 2" />
+                <span>Nieta 2</span>
+              </div>
+            </div>
+
+            <div class="tree-node">
+              <img src="imagenes\fotografia.jpg"
+              style="height: 150px; width: 150px" alt="Hijo 2" />
+              <span>Hijo 2</span>
+              <div class="connector connector-horizontal"></div>
+              <div class="tree-node">
+                <img src="imagenes\fotografia.jpg"
+                style="height: 150px; width: 150px" alt="Nieto 1" />
+                <span>Nieto 1</span>
+              </div>
+            </div>
+
+            <div class="tree-node">
+              <img src="imagenes\fotografia.jpg"
+              style="height: 150px; width: 150px" alt="Hijo 3" />
+              <span>Hijo 3</span>
+              <div class="connector connector-horizontal"></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="arbol" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Árbol Genealógico</h2>
-            <div class="tree d-flex justify-content-center flex-wrap">
-                <!-- Padre y Esposa -->
-                <div class="tree-node">
-                    <img src="https://picsum.photos/100/100" alt="Padre" />
-                    <span>Padre</span>
-                    <div class="connector connector-vertical"></div>
-                    <img src="https://picsum.photos/100/100" alt="Madre" />
-                    <span>Madre</span>
-                </div>
-    
-                <!-- Hijos -->
-                <div class="w-100 d-flex justify-content-center">
-                    <div class="tree-node">
-                        <img src="https://picsum.photos/100/100" alt="Hijo 1" />
-                        <span>Hijo 1</span>
-                        <div class="connector connector-horizontal"></div>
-                        <div class="tree-node">
-                            <img src="https://picsum.photos/100/100" alt="Nieta 1" />
-                            <span>Nieta 1</span>
-                        </div>
-                        <div class="tree-node">
-                            <img src="https://picsum.photos/100/100" alt="Nieta 2" />
-                            <span>Nieta 2</span>
-                        </div>
-                    </div>
-    
-                    <div class="tree-node">
-                        <img src="https://picsum.photos/100/100" alt="Hijo 2" />
-                        <span>Hijo 2</span>
-                        <div class="connector connector-horizontal"></div>
-                        <div class="tree-node">
-                            <img src="https://picsum.photos/100/100" alt="Nieto 1" />
-                            <span>Nieto 1</span>
-                        </div>
-                    </div>
-    
-                    <div class="tree-node">
-                        <img src="https://picsum.photos/100/100" alt="Hijo 3" />
-                        <span>Hijo 3</span>
-                        <div class="connector connector-horizontal"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    
-
     <!-- Ubicación -->
     <section id="ubicacion" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-4 text-dark">Lugar de Descanso</h2>
-            <div class="d-flex justify-content-center">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62475.58795145503!2d-77.14489793337891!3d-11.854565535803095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105d130317373cf%3A0x2b0f440fa14b9732!2sParque%20del%20Recuerdo%20Puente%20Piedra!5e0!3m2!1ses-419!2spe!4v1736566496661!5m2!1ses-419!2spe" 
-                    width="600" 
-                    height="450" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
+      <div class="container">
+        <h2 class="text-center mb-4 text-dark">Lugar de Descanso</h2>
+        <div class="d-flex justify-content-center">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62475.58795145503!2d-77.14489793337891!3d-11.854565535803095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105d130317373cf%3A0x2b0f440fa14b9732!2sParque%20del%20Recuerdo%20Puente%20Piedra!5e0!3m2!1ses-419!2spe!4v1736566496661!5m2!1ses-419!2spe"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
         </div>
+      </div>
     </section>
-    
 
     <!-- Footer -->
     <footer>
@@ -340,11 +355,12 @@
         <div class="modal-content">
           <div class="modal-body">
             <img
-              src="https://picsum.photos/200/200"
+            src="imagenes\fotografia.jpg"
+            style="height: 200px; width: 200px"
               class="img-fluid mb-3"
               alt="Foto 1"
             />
-            <p>
+            <p class="text-dark">
               Descripción del momento memorable relacionado con esta imagen.
             </p>
           </div>
